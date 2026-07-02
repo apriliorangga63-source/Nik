@@ -1,0 +1,85 @@
+{
+  "ea_info": {
+    "name": "EA MT5 Professional - Technical & Fundamental Separation Final",
+    "version": "1.0",
+    "author": "April Orangga",
+    "date": "2026-07-02",
+    "description": "Professional Automated Trading EA with separated Technical and Fundamental Analysis engines"
+  },
+  "technical_engine": {
+    "enabled": true,
+    "components": [
+      "Smart Money Concept (SMC)",
+      "Liquidity Sweep",
+      "Break of Structure (BOS)",
+      "Order Block Detection",
+      "Volume Profile",
+      "Trendline System (H4 & H1)",
+      "ATR Trailing Stop"
+    ],
+    "atr_period": 14,
+    "atr_multiplier": 1.2,
+    "tp_multiplier": 2.0
+  },
+  "fundamental_engine": {
+    "enabled": true,
+    "high_impact_news": [
+      "CPI",
+      "NFP",
+      "FOMC",
+      "GDP",
+      "Unemployment Rate"
+    ],
+    "lot_per_entry": 0.02,
+    "max_positions": 2,
+    "max_total_lot": 0.04,
+    "entry_window_minutes": 5
+  },
+  "spike_filter": {
+    "enabled": true,
+    "rule_1": {
+      "description": "Skip if candle range > 2.5 × ATR and body < 25% range",
+      "enabled": true
+    },
+    "rule_2": {
+      "description": "Skip 1-2 candles after news",
+      "enabled": true,
+      "skip_candles": 2
+    },
+    "rule_3": {
+      "description": "Skip if ATR > 3 × ATR average (20 candle)",
+      "enabled": true
+    },
+    "rule_4": {
+      "description": "Skip if spread > normal × 2.5",
+      "enabled": true
+    },
+    "rule_5": {
+      "description": "Entry only if after spike price continues 1 candle in direction",
+      "enabled": true
+    }
+  },
+  "safety_filters": {
+    "max_spread_pips": 15,
+    "max_positions_allowed": 2,
+    "max_daily_loss_percent": 5,
+    "duplicate_entry_prevention": true,
+    "dual_engine_prevention": true,
+    "no_martingale": true,
+    "no_grid": true,
+    "anti_overtrade": true
+  },
+  "broker_support": [
+    "HFM",
+    "Exness",
+    "DooPrime",
+    "Markets4you",
+    "All MT5 Brokers"
+  ],
+  "account_settings": {
+    "min_account_balance_usd": 1000,
+    "min_lot_size": 0.01,
+    "max_lot_size": 1.0,
+    "risk_percent_per_trade": 2
+  }
+}
